@@ -48,3 +48,6 @@ gem 'bootswatch-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'pg'
+gem 'rails_12factor', group: :production
+
+ruby "2.2.1"
