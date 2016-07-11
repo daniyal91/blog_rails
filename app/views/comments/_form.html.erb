@@ -1,0 +1,33 @@
+<br><br>
+<h3> Comments </h3>
+<hr>
+<% @comments.each do |comment| %>
+ <%= image_tag "#{comment.user.avatar}", size: "80x60" %>
+  <p class="text-primary"><%= comment.content %></p>
+  <p class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</p>
+  <hr>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-7 col-sm-offset-2">
+    <div class="well bs-component">
+      <%= form_for(@comment, :html => {:class => 'form-horizontal'}) do |f| %>
+        <fieldset>
+          <legend>Leave a comment</legend>
+          <div class="form-group">
+            <%= f.label :content, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_area :content, :class => 'form-control', :placeholder => 'Comment' %>
+            </div>
+          </div>
+          <input type="hidden" value='<%= params[:id]%>' name='post_id'>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= f.submit :class => 'btn btn-primary' %>
+            </div>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>
