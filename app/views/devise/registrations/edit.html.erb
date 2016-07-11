@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-7 col-sm-offset-2">
+    <div class="well bs-component">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-horizontal', :multipart => true, :method => :put}) do |f| %>
+        <fieldset>
+          <legend>Edit Profile</legend>
+          <div class="form-group">
+            <%= f.label :first_name, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :first_name, autofocus: true, :class => 'form-control', :placeholder => 'First name' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :last_name, autofocus: true, :class => 'form-control', :placeholder => 'Last name' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Email' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
+              <p class="text-muted">leave blank if you don't want to change it</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Confirm password' %>
+            </div>
+          </div>
+           <div class="form-group">
+            <%= f.label "Profile Image", :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.file_field :avatar, :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :current_password, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.password_field :current_password, :class => 'form-control', :placeholder => 'Current password' %>
+              <p class="text-muted">we need your current password to confirm your changes</p>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= f.submit "Update", :class => 'btn btn-primary' %>
+            </div>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>

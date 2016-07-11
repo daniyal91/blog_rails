@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-7 col-sm-offset-2">
+    <div class="well bs-component">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+        <fieldset>
+          <legend>Login</legend>
+          <div class="form-group">
+            <%= f.label :email, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Email' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :passowrd, :class => 'col-lg-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= f.submit "Log in", :class => 'btn btn-primary' %>
+            </div>
+          </div>
+        </fieldset>
+      <% end %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+    </div>
+  </div>
+</div>
