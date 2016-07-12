@@ -9,7 +9,7 @@
 	<blockquote>
   	<h3><%= @post.title %></h3>
   	<small>
-  		<span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<%= current_user.full_name %></span>
+  		<span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<%= @post.user.full_name %></span>
 		</small>
 		<small>
   		<span class="glyphicon glyphicon-time" aria-hidden="true">&nbsp;<%= time_ago_in_words(@post.created_at) %> ago</span>
