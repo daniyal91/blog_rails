@@ -16,4 +16,20 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :avatar
   end
 
+  # def authenticate_admin_user!
+  #   #authenticate_user! 
+  #   # unless current_user.admin?
+  #   #   flash[:alert] = "This area is restricted to administrators only."
+  #   #   redirect_to root_path 
+  #   # end
+  # end
+   
+  def after_sign_in_path_for(resource)
+    if current_user.admin?
+      admin_dashboard_path 
+    else
+      root_path
+    end
+  end
+
 end
