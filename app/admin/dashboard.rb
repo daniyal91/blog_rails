@@ -38,6 +38,15 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
+        panel "New Posts (Published)" do
+          ul do
+            Post.where('published = ?', true).last(5).map do |post|
+              li link_to(post.title, admin_post_path(post)) + " by " + link_to(post.user.full_name, admin_user_path(post.user.id))
+            end
+          end
+        end
+      end
+      column do
         panel "Unpublished Posts" do
           ul do
             Post.where('published = ?', false).map do |post|
@@ -47,5 +56,27 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    columns do
+      column do
+        panel "New Signed-Up Users" do
+          ul do
+            User.where('admin = ?',false).last(5).map do |user|
+              li link_to(user.full_name, admin_user_path(user)) + " on " + user.created_at.strftime("%B %d, %Y") + " at " + user.created_at.strftime("%I:%M:%S %p")
+            end
+          end
+        end
+      end
+      column do
+        panel "Recently Logged-In Users" do
+          ul do
+            User.all.order("current_sign_in_at DESC").last(5).map do |user|
+              li link_to(user.full_name, admin_user_path(user)) + " from " + user.current_sign_in_ip
+            end
+          end
+        end
+      end
+    end
+
   end # content
 end
