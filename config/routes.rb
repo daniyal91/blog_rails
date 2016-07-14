@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
+  match "admin/posts/:id/publish_post" => 'admin/posts#publish_post', via: :put
+  match "admin/posts/:id/unpublish_post" => 'admin/posts#unpublish_post', via: :put
+
   resources :comments
+
   devise_for :users
 
   resources :posts do

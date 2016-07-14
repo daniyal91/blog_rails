@@ -51,4 +51,4 @@ gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 gem 'activeadmin', github: 'activeadmin'
 
-ruby "2.2.1"
+# ruby "2.2.1"
